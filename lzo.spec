@@ -26,6 +26,24 @@ It implements a number of algorithms with the following features:
 - Algorithm is thread safe.
 - Algorithm is lossless.
 
+%description -l pl
+LZO jest przeno¶n± bibliotek± do bezstratnej kompresji danych,
+napisan± w ANZI C. Zaimplementowano w niej kilka algorytmów 
+uzyskuj±c nastêpuj±c± funkcjonalno¶æ:
+
+- dekompresja jest prosta i *bardzo* szybka
+- dekompresja nie zu¿ywa dodatkowej pamiêci
+- kompresja jest ca³kiem szybka
+- kompresja wymaga 64kb pamiêci
+- pozwala zwiêkszyæ kompresjê zmniejszaj±c szybko¶æ kompresji, przy czym
+  szybko¶æ dekompresji pozostaje niezmieniona
+- zawiera poziomy kompresji do generowania prekompresowanych danych,
+  osi±gaj±ce ca³kiem dobry stopieñ kompresji
+- istnieje poziom kompresji wymagaj±cy przy kompresowaniu jedynie 8kb pamiêci
+- obs³uguje kompresjê nak³adaj±c± i 'in-place'
+- algorytm nadaje siê do bezpiecznego wykorzystania w ¶rodowisku wielow±tkowym
+- algorytm jest bezstratny
+
 %package devel
 Summary:	LZO -- a real-time data compression library
 Group:		Development/Libraries
