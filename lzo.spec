@@ -1,6 +1,6 @@
 Summary:	LZO -- a real-time data compression library
 Name:		lzo
-Version:	1.06
+Version:	1.07
 Release:	1
 Group:		Libraries
 Group(de):	Libraries
@@ -51,7 +51,8 @@ LZO static library.
 %prep
 %setup  -q
 %build
-%configure 
+%configure \
+	--enable-shared
 
 %{__make}
 
@@ -59,8 +60,6 @@ LZO static library.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
-
-strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
 
 gzip -9nf README ChangeLog 
 
@@ -72,12 +71,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {README,ChangeLog}.gz
-%defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
+%doc *.gz
 %{_includedir}/*
 %{_libdir}/lib*.so
 %{_libdir}/lib*.la
