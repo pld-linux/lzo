@@ -35,7 +35,7 @@ It implements a number of algorithms with the following features:
 
 %description -l pl
 LZO jest przeno¶n± bibliotek± do bezstratnej kompresji danych,
-napisan± w ANZI C. Zaimplementowano w niej kilka algorytmów uzyskuj±c
+napisan± w ANSI C. Zaimplementowano w niej kilka algorytmów uzyskuj±c
 nastêpuj±c± funkcjonalno¶æ:
 - dekompresja jest prosta i *bardzo* szybka
 - dekompresja nie zu¿ywa dodatkowej pamiêci
