@@ -6,7 +6,7 @@ Release:	4
 Group:		Libraries
 License:	GPL
 Source0:	http://www.oberhumer.com/opensource/lzo/download/%{name}-%{version}.tar.gz
-# Source0-md5: ab94d3da364c7cbd5b78d76f1875b0f6
+# Source0-md5:	ab94d3da364c7cbd5b78d76f1875b0f6
 URL:		http://www.oberhumer.com/opensource/lzo/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1.6
