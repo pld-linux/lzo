@@ -5,8 +5,12 @@ Version:	1.07
 Release:	4
 Group:		Libraries
 Group(de):	Libraries
+Group(es):	Bibliotecas
 Group(fr):	Librairies
 Group(pl):	Biblioteki
+Group(pt_BR):	Bibliotecas
+Group(ru):	‚…¬Ã…œ‘≈À…
+Group(uk):	‚¶¬Ã¶œ‘≈À…
 License:	GPL
 Source0:	http://wildsau.idv.uni-linz.ac.at/mfx/download/lzo/%{name}-%{version}.tar.gz
 URL:		http://wildsau.idv.uni-linz.ac.at/mfx/lzo.html
@@ -33,6 +37,7 @@ It implements a number of algorithms with the following features:
 Summary:	LZO -- a real-time data compression library
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name} = %{version}
@@ -47,6 +52,7 @@ Pliki nag≥Ûwkowe dla LZO
 Summary:	LZO static library
 Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
+Group(es):	Desarrollo/Bibliotecas
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
 Requires:	%{name}-devel = %{version}
