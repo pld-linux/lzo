@@ -79,9 +79,8 @@ Biblioteka statyczna LZO.
 %setup -q
 
 %build
-rm -f missing
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I acconfig/m4
 %{__autoconf}
 %{__automake}
 %configure \
