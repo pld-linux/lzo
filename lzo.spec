@@ -34,7 +34,7 @@ Requires:	%{name} = %{version}
 %description devel
 Header files for LZO.
 
-%description -l pl devel
+%description devel -l pl
 Pliki nag³ówkowe dla LZO
 
 %package static
@@ -45,7 +45,7 @@ Requires:	%{name}-devel = %{version}
 %description static
 LZO static library.
 
-%description -l pl static
+%description static -l pl
 Biblioteki statyczne dla LZO
 
 %prep
@@ -61,7 +61,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf README ChangeLog 
+gzip -9nf README ChangeLog
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
