@@ -73,7 +73,7 @@ Biblioteka statyczna LZO.
 %setup -q
 
 %build
-%configure2_13 \
+%configure \
 	--enable-shared
 
 %{__make} CFLAGS_O=""
