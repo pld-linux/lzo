@@ -1,12 +1,12 @@
 Summary:	LZO - a real-time data compression library
 Summary(pl):	LZO - biblioteka kompresji danych w czasie rzeczywistym
 Name:		lzo
-Version:	1.07
-Release:	5
+Version:	1.08
+Release:	1
 Group:		Libraries
 License:	GPL
-Source0:	http://wildsau.idv.uni-linz.ac.at/mfx/download/lzo/%{name}-%{version}.tar.gz
-URL:		http://wildsau.idv.uni-linz.ac.at/mfx/lzo.html
+Source0:	http://www.oberhumer.com/opensource/lzo/download/%{name}-%{version}.tar.gz
+URL:		http://www.oberhumer.com/opensource/lzo/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -28,8 +28,8 @@ It implements a number of algorithms with the following features:
 
 %description -l pl
 LZO jest przeno¶n± bibliotek± do bezstratnej kompresji danych,
-napisan± w ANZI C. Zaimplementowano w niej kilka algorytmów 
-uzyskuj±c nastêpuj±c± funkcjonalno¶æ:
+napisan± w ANZI C. Zaimplementowano w niej kilka algorytmów uzyskuj±c
+nastêpuj±c± funkcjonalno¶æ:
 - dekompresja jest prosta i *bardzo* szybka
 - dekompresja nie zu¿ywa dodatkowej pamiêci
 - kompresja jest ca³kiem szybka
