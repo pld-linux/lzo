@@ -1,8 +1,8 @@
-Summary:	LZO -- a real-time data compression library
-Summary(pl):	LZO -- biblioteka kompresji danych w czasie rzeczywistym
+Summary:	LZO - a real-time data compression library
+Summary(pl):	LZO - biblioteka kompresji danych w czasie rzeczywistym
 Name:		lzo
 Version:	1.07
-Release:	4
+Release:	5
 Group:		Libraries
 License:	GPL
 Source0:	http://wildsau.idv.uni-linz.ac.at/mfx/download/lzo/%{name}-%{version}.tar.gz
@@ -30,22 +30,24 @@ It implements a number of algorithms with the following features:
 LZO jest przeno¶n± bibliotek± do bezstratnej kompresji danych,
 napisan± w ANZI C. Zaimplementowano w niej kilka algorytmów 
 uzyskuj±c nastêpuj±c± funkcjonalno¶æ:
-
 - dekompresja jest prosta i *bardzo* szybka
 - dekompresja nie zu¿ywa dodatkowej pamiêci
 - kompresja jest ca³kiem szybka
-- kompresja wymaga 64kb pamiêci
-- pozwala zwiêkszyæ kompresjê zmniejszaj±c szybko¶æ kompresji, przy czym
-  szybko¶æ dekompresji pozostaje niezmieniona
+- kompresja wymaga 64kB pamiêci
+- pozwala zwiêkszyæ kompresjê zmniejszaj±c szybko¶æ kompresji, przy
+  czym szybko¶æ dekompresji pozostaje niezmieniona
 - zawiera poziomy kompresji do generowania prekompresowanych danych,
   osi±gaj±ce ca³kiem dobry stopieñ kompresji
-- istnieje poziom kompresji wymagaj±cy przy kompresowaniu jedynie 8kb pamiêci
+- istnieje poziom kompresji wymagaj±cy przy kompresowaniu jedynie 8kB
+  pamiêci
 - obs³uguje kompresjê nak³adaj±c± i 'in-place'
-- algorytm nadaje siê do bezpiecznego wykorzystania w ¶rodowisku wielow±tkowym
+- algorytm nadaje siê do bezpiecznego wykorzystania w ¶rodowisku
+  wielow±tkowym
 - algorytm jest bezstratny
 
 %package devel
-Summary:	LZO -- a real-time data compression library
+Summary:	LZO header files
+Summary(pl):	Pliki nag³ówkowe LZO
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
 
@@ -53,10 +55,11 @@ Requires:	%{name} = %{version}
 Header files for LZO.
 
 %description devel -l pl
-Pliki nag³ówkowe dla LZO
+Pliki nag³ówkowe dla LZO.
 
 %package static
 Summary:	LZO static library
+Summary(pl):	Statyczna biblioteka LZO
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}
 
@@ -64,39 +67,39 @@ Requires:	%{name}-devel = %{version}
 LZO static library.
 
 %description static -l pl
-Biblioteki statyczne dla LZO
+Biblioteka statyczna LZO.
 
 %prep
-%setup  -q
+%setup -q
+
 %build
 %configure2_13 \
 	--enable-shared
 
-%{__make}
+%{__make} CFLAGS_O=""
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf README ChangeLog
+%clean
+rm -rf $RPM_BUILD_ROOT
 
 %post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %files
 %defattr(644,root,root,755)
+%doc AUTHORS BUGS NEWS README THANKS doc/LZO.FAQ
 %attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
-%doc *.gz
+%doc doc/LZO.FAQ doc/LZO.TXT doc/LZOAPI.TXT
 %{_includedir}/*
-%{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/lib*.so
+%attr(755,root,root) %{_libdir}/lib*.la
 
 %files static
 %defattr(644,root,root,755)
