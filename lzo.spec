@@ -2,7 +2,7 @@ Summary:	LZO -- a real-time data compression library
 Summary(pl):	LZO -- biblioteka kompresji danych w czasie rzeczywistym
 Name:		lzo
 Version:	1.07
-Release:	3
+Release:	4
 Group:		Libraries
 Group(de):	Libraries
 Group(fr):	Librairies
@@ -49,7 +49,7 @@ Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
-Requires:	%{name}-static = %{version}
+Requires:	%{name}-devel = %{version}
 
 %description static
 LZO static library.
