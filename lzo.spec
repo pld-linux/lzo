@@ -31,16 +31,22 @@ It implements a number of algorithms with the following features:
 %package devel
 Summary:	LZO -- a real-time data compression library
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
+Group(fr):	Development/Librairies
+Group(pl):	Programowanie/Biblioteki
 
 %description devel
-Header files for LZO
+Header files for LZO.
 
 %package static
-Summary:	LZO -- a real-time data compression library
+Summary:	LZO static library
 Group:		Development/Libraries
+Group(de):	Entwicklung/Libraries
+Group(fr):	Development/Librairies
+Group(pl):	Programowanie/Biblioteki
 
 %description static
-Header files for LZO
+LZO static library.
 
 %prep
 %setup  -q
@@ -54,25 +60,28 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
+strip --strip-unneeded $RPM_BUILD_ROOT%{_libdir}/lib*.so.*.*
+
 gzip -9nf README ChangeLog 
 
-%post -p /sbin/ldconfig
-
+%post   -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
+%defattr(644,root,root,755)
 %doc {README,ChangeLog}.gz
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/*.so.*.*
+%attr(755,root,root) %{_libdir}/lib*.so.*.*
 
 %files devel
 %defattr(644,root,root,755)
 %{_includedir}/*
-%{_libdir}/*.so
+%{_libdir}/lib*.so
+%{_libdir}/lib*.la
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/*.a
+%{_libdir}/lib*.a
