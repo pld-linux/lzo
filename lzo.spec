@@ -1,12 +1,12 @@
 Summary:	LZO - a real-time data compression library
 Summary(pl):	LZO - biblioteka kompresji danych w czasie rzeczywistym
 Name:		lzo
-Version:	1.08
-Release:	4
+Version:	2.00
+Release:	1
 Group:		Libraries
 License:	GPL
 Source0:	http://www.oberhumer.com/opensource/lzo/download/%{name}-%{version}.tar.gz
-# Source0-md5:	ab94d3da364c7cbd5b78d76f1875b0f6
+# Source0-md5:	c7b6b2a0aa3b06722afed4bec4f79011
 URL:		http://www.oberhumer.com/opensource/lzo/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1.6
@@ -56,7 +56,7 @@ nastêpuj±c± funkcjonalno¶æ:
 Summary:	LZO header files
 Summary(pl):	Pliki nag³ówkowe LZO
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for LZO.
@@ -68,7 +68,7 @@ Pliki nag³ówkowe dla LZO.
 Summary:	LZO static library
 Summary(pl):	Statyczna biblioteka LZO
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 LZO static library.
@@ -79,10 +79,14 @@ Biblioteka statyczna LZO.
 %prep
 %setup -q
 
+# kill libtool.m4 copy
+head -n 374 aclocal.m4 > acinclude.m4
+
 %build
 %{__libtoolize}
-%{__aclocal} -I acconfig/m4
+%{__aclocal}
 %{__autoconf}
+%{__autoheader}
 %{__automake}
 %configure \
 %ifarch %{x86}
@@ -90,12 +94,14 @@ Biblioteka statyczna LZO.
 %endif
 	--enable-shared
 
-%{__make} CFLAGS_O=""
+%{__make} \
+	CFLAGS_O=""
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -106,15 +112,15 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS NEWS README THANKS doc/LZO.FAQ doc/LZO.TXT
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/liblzo.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
 %doc doc/LZOAPI.TXT
-%{_includedir}/*
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
+%attr(755,root,root) %{_libdir}/liblzo.so
+%{_libdir}/liblzo.la
+%{_includedir}/lzo
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/liblzo.a
