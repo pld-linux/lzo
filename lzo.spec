@@ -1,12 +1,12 @@
 Summary:	LZO - a real-time data compression library
 Summary(pl):	LZO - biblioteka kompresji danych w czasie rzeczywistym
 Name:		lzo
-Version:	2.00
+Version:	2.01
 Release:	1
 Group:		Libraries
 License:	GPL
 Source0:	http://www.oberhumer.com/opensource/lzo/download/%{name}-%{version}.tar.gz
-# Source0-md5:	c7b6b2a0aa3b06722afed4bec4f79011
+# Source0-md5:	0068c3f5a6325323dcdad3a4c52ed51e
 URL:		http://www.oberhumer.com/opensource/lzo/
 BuildRequires:	autoconf >= 2.53
 BuildRequires:	automake >= 1.6
@@ -112,15 +112,15 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS NEWS README THANKS doc/LZO.FAQ doc/LZO.TXT
-%attr(755,root,root) %{_libdir}/liblzo.so.*.*.*
+%attr(755,root,root) %{_libdir}/liblzo2.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
 %doc doc/LZOAPI.TXT
-%attr(755,root,root) %{_libdir}/liblzo.so
-%{_libdir}/liblzo.la
+%attr(755,root,root) %{_libdir}/liblzo2.so
+%{_libdir}/liblzo2.la
 %{_includedir}/lzo
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/liblzo.a
+%{_libdir}/liblzo2.a
