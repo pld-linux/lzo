@@ -14,6 +14,7 @@ BuildRequires:	libtool
 %ifarch %{x86}
 BuildRequires:	nasm
 %endif
+BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -78,6 +79,7 @@ Biblioteka statyczna LZO.
 
 %prep
 %setup -q
+sed 's/_AC_SRCPATHS/_AC_SRCDIRS/' -i configure.ac
 
 # kill libtool.m4 copy
 head -n 374 aclocal.m4 > acinclude.m4
