@@ -8,7 +8,7 @@ License:	GPL
 Source0:	http://www.oberhumer.com/opensource/lzo/download/%{name}-%{version}.tar.gz
 # Source0-md5:	6760e5819f4238328709bf93bf10071c
 URL:		http://www.oberhumer.com/opensource/lzo/
-BuildRequires:	autoconf >= 2.53
+BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake >= 1.6
 BuildRequires:	libtool
 %ifarch %{x86}
