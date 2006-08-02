@@ -3,10 +3,11 @@ Summary(pl):	LZO - biblioteka kompresji danych w czasie rzeczywistym
 Name:		lzo
 Version:	2.02
 Release:	1
-Group:		Libraries
 License:	GPL
+Group:		Libraries
 Source0:	http://www.oberhumer.com/opensource/lzo/download/%{name}-%{version}.tar.gz
 # Source0-md5:	6760e5819f4238328709bf93bf10071c
+Patch0:		%{name}-ac.patch
 URL:		http://www.oberhumer.com/opensource/lzo/
 BuildRequires:	autoconf >= 2.60
 BuildRequires:	automake >= 1.6
@@ -14,7 +15,6 @@ BuildRequires:	libtool
 %ifarch %{x86}
 BuildRequires:	nasm
 %endif
-BuildRequires:	sed >= 4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -79,7 +79,7 @@ Biblioteka statyczna LZO.
 
 %prep
 %setup -q
-sed 's/_AC_SRCPATHS/_AC_SRCDIRS/' -i configure.ac
+%patch0 -p1
 
 # kill libtool.m4 copy
 head -n 374 aclocal.m4 > acinclude.m4
