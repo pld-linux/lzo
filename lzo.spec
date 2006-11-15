@@ -10,7 +10,7 @@ Source0:	http://www.oberhumer.com/opensource/lzo/download/%{name}-%{version}.tar
 Patch0:		%{name}-ac.patch
 URL:		http://www.oberhumer.com/opensource/lzo/
 BuildRequires:	autoconf >= 2.60
-BuildRequires:	automake >= 1.6
+BuildRequires:	automake >= 1.9.5
 BuildRequires:	libtool
 %ifarch %{x86}
 BuildRequires:	nasm
