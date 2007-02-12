@@ -1,5 +1,5 @@
 Summary:	LZO - a real-time data compression library
-Summary(pl):	LZO - biblioteka kompresji danych w czasie rzeczywistym
+Summary(pl.UTF-8):   LZO - biblioteka kompresji danych w czasie rzeczywistym
 Name:		lzo
 Version:	2.02
 Release:	2
@@ -34,47 +34,47 @@ It implements a number of algorithms with the following features:
 - Algorithm is thread safe.
 - Algorithm is lossless.
 
-%description -l pl
-LZO jest przeno¶n± bibliotek± do bezstratnej kompresji danych,
-napisan± w ANSI C. Zaimplementowano w niej kilka algorytmów uzyskuj±c
-nastêpuj±c± funkcjonalno¶æ:
+%description -l pl.UTF-8
+LZO jest przenoÅ›nÄ… bibliotekÄ… do bezstratnej kompresji danych,
+napisanÄ… w ANSI C. Zaimplementowano w niej kilka algorytmÃ³w uzyskujÄ…c
+nastÄ™pujÄ…cÄ… funkcjonalnoÅ›Ä‡:
 - dekompresja jest prosta i *bardzo* szybka
-- dekompresja nie zu¿ywa dodatkowej pamiêci
-- kompresja jest ca³kiem szybka
-- kompresja wymaga 64kB pamiêci
-- pozwala zwiêkszyæ kompresjê zmniejszaj±c szybko¶æ kompresji, przy
-  czym szybko¶æ dekompresji pozostaje niezmieniona
+- dekompresja nie zuÅ¼ywa dodatkowej pamiÄ™ci
+- kompresja jest caÅ‚kiem szybka
+- kompresja wymaga 64kB pamiÄ™ci
+- pozwala zwiÄ™kszyÄ‡ kompresjÄ™ zmniejszajÄ…c szybkoÅ›Ä‡ kompresji, przy
+  czym szybkoÅ›Ä‡ dekompresji pozostaje niezmieniona
 - zawiera poziomy kompresji do generowania prekompresowanych danych,
-  osi±gaj±ce ca³kiem dobry stopieñ kompresji
-- istnieje poziom kompresji wymagaj±cy przy kompresowaniu jedynie 8kB
-  pamiêci
-- obs³uguje kompresjê nak³adaj±c± i 'in-place'
-- algorytm nadaje siê do bezpiecznego wykorzystania w ¶rodowisku
-  wielow±tkowym
+  osiÄ…gajÄ…ce caÅ‚kiem dobry stopieÅ„ kompresji
+- istnieje poziom kompresji wymagajÄ…cy przy kompresowaniu jedynie 8kB
+  pamiÄ™ci
+- obsÅ‚uguje kompresjÄ™ nakÅ‚adajÄ…cÄ… i 'in-place'
+- algorytm nadaje siÄ™ do bezpiecznego wykorzystania w Å›rodowisku
+  wielowÄ…tkowym
 - algorytm jest bezstratny
 
 %package devel
 Summary:	LZO header files
-Summary(pl):	Pliki nag³ówkowe LZO
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe LZO
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for LZO.
 
-%description devel -l pl
-Pliki nag³ówkowe dla LZO.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe dla LZO.
 
 %package static
 Summary:	LZO static library
-Summary(pl):	Statyczna biblioteka LZO
+Summary(pl.UTF-8):   Statyczna biblioteka LZO
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 LZO static library.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Biblioteka statyczna LZO.
 
 %prep
