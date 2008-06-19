@@ -1,20 +1,17 @@
 Summary:	LZO - a real-time data compression library
 Summary(pl.UTF-8):	LZO - biblioteka kompresji danych w czasie rzeczywistym
 Name:		lzo
-Version:	2.02
-Release:	3
-License:	GPL
+Version:	2.03
+Release:	1
+License:	GPL v2+
 Group:		Libraries
 Source0:	http://www.oberhumer.com/opensource/lzo/download/%{name}-%{version}.tar.gz
-# Source0-md5:	6760e5819f4238328709bf93bf10071c
+# Source0-md5:	0c3d078c2e8ea5a88971089a2f02a726
 Patch0:		%{name}-ac.patch
 URL:		http://www.oberhumer.com/opensource/lzo/
 BuildRequires:	autoconf >= 2.60
-BuildRequires:	automake >= 1:1.9.5
+BuildRequires:	automake >= 1:1.9.6
 BuildRequires:	libtool
-%ifarch %{x86}
-BuildRequires:	nasm
-%endif
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -81,8 +78,9 @@ Biblioteka statyczna LZO.
 %setup -q
 %patch0 -p1
 
-# kill libtool.m4 copy
-head -n 374 aclocal.m4 > acinclude.m4
+# kill libtool macros, leaving mfx_*
+head -n 219 aclocal.m4 > acinclude.m4
+sed -ne '6616,6770p' aclocal.m4 >> acinclude.m4
 
 %build
 %{__libtoolize}
@@ -91,13 +89,9 @@ head -n 374 aclocal.m4 > acinclude.m4
 %{__autoheader}
 %{__automake}
 %configure \
-%ifarch %{x86}
-	--enable-asm \
-%endif
 	--enable-shared
 
-%{__make} \
-	CFLAGS_O=""
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -115,6 +109,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS BUGS NEWS README THANKS doc/LZO.FAQ doc/LZO.TXT
 %attr(755,root,root) %{_libdir}/liblzo2.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/liblzo2.so.2
 
 %files devel
 %defattr(644,root,root,755)
