@@ -8,9 +8,9 @@ Group:		Libraries
 Source0:	http://www.oberhumer.com/opensource/lzo/download/%{name}-%{version}.tar.gz
 # Source0-md5:	c67cda5fa191bab761c7cb06fe091e36
 URL:		http://www.oberhumer.com/opensource/lzo/
-BuildRequires:	autoconf >= 2.60
-BuildRequires:	automake >= 1:1.9.6
-BuildRequires:	libtool
+BuildRequires:	autoconf >= 2.67
+BuildRequires:	automake >= 1:1.11.1
+BuildRequires:	libtool >= 2:2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -86,6 +86,7 @@ Biblioteka statyczna LZO.
 %{__autoheader}
 %{__automake}
 %configure \
+	--disable-silent-rules \
 	--enable-shared
 
 %{__make}
