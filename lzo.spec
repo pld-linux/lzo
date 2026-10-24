@@ -53,7 +53,7 @@ następującą funkcjonalność:
 Summary:	LZO header files
 Summary(pl.UTF-8):	Pliki nagłówkowe LZO
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
+Requires:	%{name}%{?_isa} = %{version}-%{release}
 
 %description devel
 Header files for LZO.
@@ -65,7 +65,7 @@ Pliki nagłówkowe dla LZO.
 Summary:	LZO static library
 Summary(pl.UTF-8):	Statyczna biblioteka LZO
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}-%{release}
+Requires:	%{name}-devel%{?_isa} = %{version}-%{release}
 
 %description static
 LZO static library.
