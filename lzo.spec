@@ -5,9 +5,9 @@ Version:	2.10
 Release:	3
 License:	GPL v2+
 Group:		Libraries
-Source0:	http://www.oberhumer.com/opensource/lzo/download/%{name}-%{version}.tar.gz
+Source0:	https://www.oberhumer.com/opensource/lzo/download/%{name}-%{version}.tar.gz
 # Source0-md5:	39d3f3f9c55c87b1e5d6888e1420f4b5
-URL:		http://www.oberhumer.com/opensource/lzo/
+URL:		https://www.oberhumer.com/opensource/lzo/
 BuildRequires:	autoconf >= 2.69
 BuildRequires:	automake >= 1:1.15
 BuildRequires:	libtool >= 2:2.0
@@ -96,6 +96,8 @@ rm -rf $RPM_BUILD_ROOT
 
 # obsoleted by pkg-config
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/liblzo2.la
+# packaged as %doc
+%{__rm} -r $RPM_BUILD_ROOT%{_docdir}/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
